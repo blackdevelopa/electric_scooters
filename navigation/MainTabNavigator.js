@@ -3,74 +3,78 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import PortfolioScreen from '../screens/PortfolioScreen/PortfolioScreen';
+import MarketsScreen from '../screens/MarketScreen/MarketsScreen';
+import NewsScreen from '../screens/NewsScreen/NewsScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
 });
 
-const HomeStack = createStackNavigator(
+const PortfolioStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: PortfolioScreen,
   },
   config
 );
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+PortfolioStack.navigationOptions = {
+  tabBarLabel: 'Portfolio',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name={"ios-pie"}
     />
   ),
 };
 
-HomeStack.path = '';
+PortfolioStack.path = '';
 
-const LinksStack = createStackNavigator(
+const MarketStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Links: MarketsScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+MarketStack.navigationOptions = {
+  tabBarLabel: 'Markets',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon
+      focused={focused} 
+      name={"ios-pie"}
+    />
   ),
 };
 
-LinksStack.path = '';
+MarketStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const NewsStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Settings: NewsScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+NewsStack.navigationOptions = {
+  tabBarLabel: 'News',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon 
+      focused={focused} 
+      name={"ios-cash"} 
+    />
   ),
 };
 
-SettingsStack.path = '';
+NewsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+  PortfolioStack,
+  MarketStack,
+  NewsStack,
+}, {
+  initialRouteName: 'NewsStack'
 });
 
 tabNavigator.path = '';

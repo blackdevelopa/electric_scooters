@@ -2,6 +2,8 @@
 
 This application is built using React Native
 
+![alt_text](./snapshot.png)
+
 ### Run the Application
 * clone the repo
 * install the dependencies

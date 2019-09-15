@@ -20,7 +20,7 @@ export default class PortfolioScreen extends Component {
   }
 
   gotoSite = async() => {
-    let result = await WebBrowser.openBrowserAsync('https://thebestmotherfucking.website/');
+    let result = await WebBrowser.openBrowserAsync('https://dribbble.com/shots/7144102-News-Stock-App');
     this.setState({result})
   }
 }

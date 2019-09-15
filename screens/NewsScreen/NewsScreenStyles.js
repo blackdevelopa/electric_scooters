@@ -1,11 +1,17 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import Colors from '../../constants/Colors'
 
+let deviceHeight = Dimensions.get('window').height
+
 export default styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   topContainer: {
+    paddingTop: 55,
     backgroundColor: Colors.newsTopContainer,
-    height: 160,
+    height: 215,
   },
   iconStyle: {
     display: 'flex',

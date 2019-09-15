@@ -8,7 +8,7 @@ export default class NewsScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={styles.container}>
         <View style={styles.topContainer}>
           <StatusBar barStyle="light-content" hidden={false} />
           <View style={styles.iconStyle}>
@@ -140,7 +140,5 @@ export default class NewsScreen extends Component {
 }
 
 NewsScreen.navigationOptions = {
-  headerStyle: {
-    backgroundColor: Colors.newsTopContainer,
-  }
+  header: null
 };

@@ -10,7 +10,7 @@ export default styles = StyleSheet.create({
     backgroundColor: Colors.white
   },
   header: {
-    paddingVertical: 10,
+    paddingVertical: 15,
     paddingLeft: 15,
   },
   headerMajor: {
@@ -25,6 +25,7 @@ export default styles = StyleSheet.create({
   contentImage: {
     width: deviceWidth - 20,
     height: 250,
+    borderRadius: 10,
     marginHorizontal: 10,
   },
   contentText: {

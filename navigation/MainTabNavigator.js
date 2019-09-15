@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import PortfolioScreen from '../screens/PortfolioScreen/PortfolioScreen';
 import MarketsScreen from '../screens/MarketScreen/MarketsScreen';
 import NewsScreen from '../screens/NewsScreen/NewsScreen';
+import NewsDetailScreen from '../screens/NewsScreen/NewsDetailScreen/NewsDetailScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -14,9 +15,8 @@ const config = Platform.select({
 
 const PortfolioStack = createStackNavigator(
   {
-    Home: PortfolioScreen,
-  },
-  config
+    Portfolio: PortfolioScreen,
+  }
 );
 
 PortfolioStack.navigationOptions = {
@@ -33,7 +33,7 @@ PortfolioStack.path = '';
 
 const MarketStack = createStackNavigator(
   {
-    Links: MarketsScreen,
+    Markets: MarketsScreen,
   },
   config
 );
@@ -52,9 +52,9 @@ MarketStack.path = '';
 
 const NewsStack = createStackNavigator(
   {
-    Settings: NewsScreen,
+    News: NewsScreen,
+    NewsDetail: NewsDetailScreen,
   },
-  config
 );
 
 NewsStack.navigationOptions = {
@@ -74,7 +74,8 @@ const tabNavigator = createBottomTabNavigator({
   MarketStack,
   NewsStack,
 }, {
-  initialRouteName: 'NewsStack'
+  initialRouteName: 'NewsStack',
+  tabBarVisible: false
 });
 
 tabNavigator.path = '';

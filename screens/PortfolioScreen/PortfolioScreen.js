@@ -1,31 +1,31 @@
 import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
-import {
-  Image,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './PortfolioScreenStyle';
 
-import { MonoText } from '../../components/StyledText';
+export default class PortfolioScreen extends Component {
+  state = {
+    result: null
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.contentText}>Welcome to Stock App</Text>
+        <TouchableOpacity onPress={this.gotoSite}>
+          <Text 
+            style={styles.contentButton}>Click to go to our website</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 
-export default function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Text>Welcome to Stock App</Text>
-        </View>
-      </ScrollView>
-    </View>
-  );
+  gotoSite = async() => {
+    let result = await WebBrowser.openBrowserAsync('https://thebestmotherfucking.website/');
+    this.setState({result})
+  }
 }
 
-HomeScreen.navigationOptions = {
+PortfolioScreen.navigationOptions = {
   header: null,
 };
 
